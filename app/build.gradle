@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
 }
 
 android {
@@ -34,6 +35,9 @@ android {
 }
 
 dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
     def commonDeps = rootProject.ext.commonDependencies
     def appDeps = rootProject.ext.appDependencies
     def testing = rootProject.ext.unitTesting
@@ -50,6 +54,9 @@ dependencies {
     implementation appDeps.room
     kapt appDeps.roomCompiler
     implementation appDeps.roomKtx
+    implementation appDeps.constraintLayout
+    implementation appDeps.glide
+    implementation appDeps.glideProcessor
 
     implementation project(":core")
 
