@@ -19,7 +19,7 @@ class RoomBookDataSource(
 
     override suspend fun saveBooks(books: List<Book>) {
         books.forEach { book ->
-            var bookRecord = BookRecordMapper.mapFromBook(book)
+            val bookRecord = BookRecordMapper.mapFromBook(book)
             val newBookId = bookDao.insertBook(bookRecord)
 
             val authors =
