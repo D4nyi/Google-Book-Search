@@ -44,7 +44,7 @@ ext {
     unitTesting = [
             junit        : "junit:junit:${junitVersion}",
             androidXJunit: "androidx.test.ext:junit:${androidJunitVersion}",
-            roomTesting: "androidx.room:room-testing${roomVersion}"
+            roomTesting: "androidx.room:room-testing:${roomVersion}"
     ]
 
     accaptenceTesting = [

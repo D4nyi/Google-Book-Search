@@ -1,13 +1,17 @@
-package hu.miskolc.uni.googlebookssearchapplication.framework.db
+package hu.miskolc.uni.googlebookssearchapplication.framwork.db
 
 import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import hu.miskolc.uni.googlebookssearchapplication.framework.db.BookDatabase
 import hu.miskolc.uni.googlebookssearchapplication.framework.db.model.BookRecord
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import org.junit.runner.RunWith
 
 class BookRecordDaoTest {
 
@@ -16,7 +20,7 @@ class BookRecordDaoTest {
     @Before
     fun setUp() {
         bookDb = Room.inMemoryDatabaseBuilder(
-            InstrumentationRegistry.getInstrumentation().context,
+            ApplicationProvider.getApplicationContext(),
             BookDatabase::class.java
         )
             .allowMainThreadQueries()
@@ -51,7 +55,6 @@ class BookRecordDaoTest {
         Assert.assertTrue(hpBook.isNotEmpty())
         Assert.assertFalse(hpBook.isEmpty())
         Assert.assertEquals(hpBook.size, 1)
-        Assert.assertEquals(hpBook[1].book.id, 1)
-
+        Assert.assertEquals(hpBook[0].book.id, 1L)
     }
 }
