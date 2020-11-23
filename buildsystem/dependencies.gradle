@@ -1,0 +1,58 @@
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+ext {
+    compileVersion = 30
+    buildToolsVersion = "30.0.2"
+
+    leakCanaryVersion = "1.5.4"
+    kotlinVersion = "1.4.10"
+    androidXVersion = "1.3.2"
+    androidXCompatVersion = "1.2.0"
+    materialVersion = "1.2.1"
+    junitVersion = "4.+"
+    espressoVersion = "3.2.0"
+    androidJunitVersion = "1.1.1"
+    retrofitVersion = "2.6.0"
+    retrofitCoroutineVersion = "0.9.2"
+    roomVersion = "2.2.5"
+
+    commonDependencies = [
+            kotlinStdLib     : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
+            androidXCore     : "androidx.core:core-ktx:${androidXVersion}",
+            androidXAppCompat: "androidx.appcompat:appcompat:${androidXCompatVersion}",
+    ]
+
+    appDependencies = [
+            material                 : "com.google.android.material:material:${materialVersion}",
+            retrofit                 : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+            retrofitConverter        : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
+            retrofitCoroutinesAdapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${retrofitCoroutineVersion}",
+            room: "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
+            roomKtx: "androidx.room:room-ktx:${roomVersion}",
+
+    ]
+
+    coreDependencies = [
+    ]
+
+    unitTesting = [
+            junit        : "junit:junit:${junitVersion}",
+            androidXJunit: "androidx.test.ext:junit:${androidJunitVersion}",
+            roomTesting: "androidx.room:room-testing${roomVersion}"
+    ]
+
+    accaptenceTesting = [
+            espresso: "androidx.test.espresso:espresso-core:${espressoVersion}"
+    ]
+
+    developement = [
+            leakCanary    : "com.squareup.leakcanary:leakcanary-android:${leakCanaryVersion}",
+            leakCanaryNoop: "com.squareup.leakcanary:leakcanary-android-no-op:${leakCanaryVersion}"
+    ]
+}
