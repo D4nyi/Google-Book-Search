@@ -6,19 +6,11 @@ import org.junit.After
 import org.junit.Assert
 import org.junit.Before
 import org.junit.Test
+import org.koin.java.KoinJavaComponent.inject
 
 class NetworkDataSourceTest {
 
-    private lateinit var dataSource: BookDataSource
-
-    @Before
-    fun setUp() {
-        dataSource = NetworkDataSource()
-    }
-
-    @After
-    fun tearDown() {
-    }
+    private val dataSource: BookDataSource by inject(NetworkDataSource::class.java)
 
     @Test
     fun fetchBooks() = runBlocking {

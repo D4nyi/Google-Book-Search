@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.miskolc.uni.googlebookssearchapplication.R
 import kotlinx.android.synthetic.main.book_search_fragment.*
-import kotlinx.coroutines.newFixedThreadPoolContext
 
 class BookSearchFragment : Fragment() {
 
@@ -21,6 +20,7 @@ class BookSearchFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(BookSearchViewModel::class.java)
         adapter = DisplayedBookModelAdapter()
+
         bookList.layoutManager = LinearLayoutManager(context)
         bookList.adapter = adapter
         viewModel.books.observe(viewLifecycleOwner, Observer {

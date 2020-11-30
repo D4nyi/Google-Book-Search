@@ -38,6 +38,9 @@ dependencies {
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.1'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.1'
+
     def commonDeps = rootProject.ext.commonDependencies
     def appDeps = rootProject.ext.appDependencies
     def testing = rootProject.ext.unitTesting
@@ -57,11 +60,14 @@ dependencies {
     implementation appDeps.constraintLayout
     implementation appDeps.glide
     implementation appDeps.glideProcessor
+    implementation appDeps.koin
+    implementation appDeps.koinScope
+    implementation appDeps.koinViewModel
 
     implementation project(":core")
 
     testImplementation testing.junit
-    testImplementation 'androidx.test:core:1.3.0'
+    testImplementation testing.testCore
     androidTestImplementation testing.androidXJunit
     androidTestImplementation acceptanceTesting.espresso
     androidTestImplementation testing.roomTesting

@@ -22,6 +22,8 @@ ext {
     roomVersion = "2.2.5"
     constraintLayoutVersion = "2.0.4"
     glideVersion = "4.11.0"
+    testCoreVersion = "1.3.0"
+    koinVersion = "2.2.1"
 
     commonDependencies = [
             kotlinStdLib     : "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion",
@@ -34,12 +36,15 @@ ext {
             retrofit                 : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
             retrofitConverter        : "com.squareup.retrofit2:converter-gson:${retrofitVersion}",
             retrofitCoroutinesAdapter: "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${retrofitCoroutineVersion}",
-            room: "androidx.room:room-runtime:${roomVersion}",
-            roomCompiler: "androidx.room:room-compiler:${roomVersion}",
-            roomKtx: "androidx.room:room-ktx:${roomVersion}",
-            constraintLayout: "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
-            glide: "com.github.bumptech.glide:glide:${glideVersion}",
-            glideProcessor: "com.github.bumptech.glide:compiler:${glideVersion}"
+            room                     : "androidx.room:room-runtime:${roomVersion}",
+            roomCompiler             : "androidx.room:room-compiler:${roomVersion}",
+            roomKtx                  : "androidx.room:room-ktx:${roomVersion}",
+            constraintLayout         : "androidx.constraintlayout:constraintlayout:${constraintLayoutVersion}",
+            glide                    : "com.github.bumptech.glide:glide:${glideVersion}",
+            glideProcessor           : "com.github.bumptech.glide:compiler:${glideVersion}",
+            koin                     : "org.koin:koin-android:${koinVersion}",
+            koinScope                : "org.koin:koin-androidx-scope:${koinVersion}", // optional
+            koinViewModel            : "org.koin:koin-androidx-viewmodel:${koinVersion}" // optional
     ]
 
     coreDependencies = [
@@ -48,7 +53,8 @@ ext {
     unitTesting = [
             junit        : "junit:junit:${junitVersion}",
             androidXJunit: "androidx.test.ext:junit:${androidJunitVersion}",
-            roomTesting: "androidx.room:room-testing:${roomVersion}"
+            roomTesting  : "androidx.room:room-testing:${roomVersion}",
+            testCore     : "androidx.test:core:${testCoreVersion}"
     ]
 
     accaptenceTesting = [
