@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import hu.miskolc.uni.googlebookssearchapplication.R
 import hu.miskolc.uni.googlebookssearchapplication.koin.databaseModule
+import hu.miskolc.uni.googlebookssearchapplication.koin.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,7 +18,7 @@ class BookSearchActivity : AppCompatActivity() {
         startKoin{
             androidLogger()
             androidContext(this@BookSearchActivity)
-            modules(databaseModule)
+            modules(listOf(databaseModule, viewModelModule))
         }
 
         if (savedInstanceState == null) {

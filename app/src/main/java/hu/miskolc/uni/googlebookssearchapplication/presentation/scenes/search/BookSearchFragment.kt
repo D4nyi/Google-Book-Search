@@ -6,19 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.miskolc.uni.googlebookssearchapplication.R
 import kotlinx.android.synthetic.main.book_search_fragment.*
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class BookSearchFragment : Fragment() {
 
-    private lateinit var viewModel: BookSearchViewModel
+    private val viewModel: BookSearchViewModel by sharedViewModel()
     private lateinit var adapter: DisplayedBookModelAdapter
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(BookSearchViewModel::class.java)
+        //viewModel = ViewModelProvider(this).get(BookSearchViewModel::class.java)
         adapter = DisplayedBookModelAdapter()
 
         bookList.layoutManager = LinearLayoutManager(context)

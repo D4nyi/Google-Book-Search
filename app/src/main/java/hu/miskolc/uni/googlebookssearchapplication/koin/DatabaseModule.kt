@@ -10,6 +10,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val databaseModule = module {
+    /*
     single<BooksService> {
         val gson = GsonBuilder().create()
         val retrofit = Retrofit.Builder().baseUrl("https://www.googleapis.com")
@@ -20,4 +21,5 @@ val databaseModule = module {
     }
 
     single<BookDataSource> { NetworkDataSource(get()) }
+    */
 }
