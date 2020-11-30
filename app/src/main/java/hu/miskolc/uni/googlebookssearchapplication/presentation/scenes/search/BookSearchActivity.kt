@@ -1,7 +1,7 @@
 package hu.miskolc.uni.googlebookssearchapplication.presentation.scenes.search
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import hu.miskolc.uni.googlebookssearchapplication.R
 import hu.miskolc.uni.googlebookssearchapplication.koin.databaseModule
 import hu.miskolc.uni.googlebookssearchapplication.koin.viewModelModule
@@ -15,7 +15,7 @@ class BookSearchActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.book_search_activity)
 
-        startKoin{
+        startKoin {
             androidLogger()
             androidContext(this@BookSearchActivity)
             modules(listOf(databaseModule, viewModelModule))

@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.book_search_list_item.view.*
 class DisplayedBookModelAdapter : RecyclerView.Adapter<DisplayedBookModelAdapter.ViewHolder>() {
     private val books = ArrayList<DisplayedBookModel>()
 
-    fun setBooks(books: List<DisplayedBookModel>){
+    fun setBooks(books: List<DisplayedBookModel>) {
         this.books.clear()
         this.books.addAll(books)
     }
@@ -47,9 +47,19 @@ class DisplayedBookModelAdapter : RecyclerView.Adapter<DisplayedBookModelAdapter
         fun bind(position: Int) {
             val item = books[position]
             with(view) {
-                Glide.with(this).load(item.thumbnailUrl).into(itemImage)
+                var imageUrl: String? = item.thumbnailUrl
+
+                if (imageUrl != null && !imageUrl.startsWith("https")) {
+                    imageUrl = imageUrl.replace("http", "https")
+                }
+
+                if (imageUrl != null) {
+                    Log.d("Image URL", imageUrl)
+                }
+
+                Glide.with(this).load(imageUrl).into(itemImage)
                 itemTitle?.text = item.title
-                itemAuthors?.text = item.authors.joinToString(" ,")
+                itemAuthors?.text = item.authors.joinToString(", ")
             }
         }
     }

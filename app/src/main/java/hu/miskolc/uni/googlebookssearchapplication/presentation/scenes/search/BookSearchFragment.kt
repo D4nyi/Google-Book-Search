@@ -28,7 +28,7 @@ class BookSearchFragment : Fragment() {
             adapter.notifyDataSetChanged()
         })
 
-        viewModel.getBooks("Android")
+        viewModel.getBooks("Harry Potter")
     }
 
     override fun onCreateView(
