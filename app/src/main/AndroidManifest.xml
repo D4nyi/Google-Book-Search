@@ -11,6 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GoogleBooksSearchApplication">
+        <activity
+            android:name=".presentation.scenes.deatils.ItemListActivity"
+            android:label="@string/title_item_list"
+            android:theme="@style/Theme.GoogleBooksSearchApplication.NoActionBar"></activity>
+        <activity
+            android:name=".presentation.scenes.deatils.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".presentation.scenes.deatils.ItemListActivity"
+            android:theme="@style/Theme.GoogleBooksSearchApplication.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="hu.miskolc.uni.googlebookssearchapplication.presentation.scenes.deatils.ItemListActivity" />
+        </activity>
         <activity android:name=".presentation.scenes.search.BookSearchActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
